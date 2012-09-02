@@ -7,92 +7,92 @@ namespace Doctrine\DBAL\Cariboo\Types;
  */
 class Point {
 
-    private $longitude;     // X
-    private $latitude;      // Y
+    private $x;
+    private $y;
 
     public function __construct($x = null, $y = null) {
-        $this->longitude = $x;
-        $this->latitude = $y;
-    }
-
-    /**
-     * setLongitude
-     *
-     * @param double $x
-     */
-    public function setLongitude($x) {
-        $this->longitude = $x;
-    }
-
-    /**
-     * getLongitude
-     *
-     * @return double
-     */
-    public function getLongitude() {
-        return $this->longitude;
+        $this->x = $x;
+        $this->y = $y;
     }
 
     /**
      * setX
      *
-     * alias de setLongitude
-     *
      * @param double $x
      */
     public function setX($x) {
-        $this->setLongitude($x);
+        $this->x = $x;
     }
 
     /**
      * getX
      *
-     * alias de getLongitude
-     *
      * @return double
      */
     public function getX() {
-        return $this->getLongitude();
+        return $this->x;
     }
 
     /**
-     * setLatitude
+     * setLongitude
      *
-     * @param double $y
+     * alias de setX
+     *
+     * @param double $x
      */
-    public function setLatitude($y) {
-        $this->latitude = $y;
+    public function setLongitude($x) {
+        $this->setX($x);
     }
 
     /**
-     * getLatitude
+     * getLongitude
+     *
+     * alias de getX
      *
      * @return double
      */
-    public function getLatitude() {
-        return $this->latitude;
+    public function getLongitude() {
+        return $this->getX();
     }
 
     /**
      * setY
      *
-     * alias de setLatitude
-     *
      * @param double $y
      */
     public function setY($y) {
-        $this->setLatitude($y);
+        $this->y = $y;
     }
 
     /**
      * getY
      *
-     * alias de getLatitude
-     *
      * @return double
      */
     public function getY() {
-        return $this->getLatitude();
+        return $this->y;
+    }
+
+    /**
+     * setLatitude
+     *
+     * alias de setY
+     *
+     * @param double $y
+     */
+    public function setLatitude($y) {
+        $this->setY($y);
+    }
+
+    /**
+     * getLatitude
+     *
+     * alias de getY
+     *
+     * @return double
+     */
+    public function getLatitude() {
+        return $this->getY();
     }
 
     /**
@@ -102,7 +102,7 @@ class Point {
     */
     public function __toString() {
         // Output from this is used with POINT_STR in DQL so must be in specific format
-        return sprintf('(%f,%f)', $this->longitude, $this->latitude);
+        return sprintf('(%f,%f)', $this->x, $this->y);
     }
 
     /**
@@ -113,7 +113,7 @@ class Point {
     */
     function __equals($coordinates)
     {
-        return ($this->longitude == $coordinates->getLongitude()
-            && $this->latitude == $coordinates->getLatitude());
+        return ($this->x == $coordinates->getX()
+            && $this->y == $coordinates->getY());
     }
 }
