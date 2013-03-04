@@ -20,6 +20,7 @@
 namespace Doctrine\DBAL\Cariboo\Platforms;
 
 use Doctrine\DBAL\Cariboo\Types\Point;
+use Doctrine\DBAL\Cariboo\Types\PointType;
 
 /**
  * PostgreSqlPlatform.
@@ -127,7 +128,7 @@ class PostgreSqlPlatform extends \Doctrine\DBAL\Platforms\PostgreSqlPlatform
      */
     public function getPointTypeDeclarationSQL(array $fieldDeclaration)
     {
-        return 'POINT';
+        return PointType::POINT;
     }
 
     /**
