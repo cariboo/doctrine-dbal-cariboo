@@ -36,14 +36,14 @@ class PointType extends Type {
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         // Null fields come in as empty strings
-        if ($value == '')  return null;
+        // if ($value === '')  return null;
  
         return $platform->getPointType($value);
     }
  
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        if (!$value) return 'null';
+        // if ($value === null) return 'null';
  
         return $platform->getPointTypeSQL($value);
     }

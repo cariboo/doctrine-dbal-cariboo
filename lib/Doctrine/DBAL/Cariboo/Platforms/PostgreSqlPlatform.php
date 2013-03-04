@@ -137,8 +137,9 @@ class PostgreSqlPlatform extends \Doctrine\DBAL\Platforms\PostgreSqlPlatform
      */
     public function getPointType($value)
     {
-        list($x, $y) = sscanf($value, "(%f,%f)");
+        if ($value === null) return null;
 
+        list($x, $y) = sscanf($value, "(%f,%f)");
         return new Point($x, $y);
     }
 
@@ -149,6 +150,8 @@ class PostgreSqlPlatform extends \Doctrine\DBAL\Platforms\PostgreSqlPlatform
      */
     public function getPointTypeSQL($value)
     {
+        if ($value === null) return null;
+        
         return sprintf("(%f,%f)", $value->getLatitude(), $value->getLongitude());
     }
 
