@@ -2,12 +2,23 @@
 
 namespace Doctrine\DBAL\Cariboo\Types;
 
+use JMS\Serializer\Annotation as SERIAL;
+
 /**
  * Point object for spatial mapping
  */
 class Point {
 
+    /**
+     * @var double $x
+     * @SERIAL\Type("double")
+     */
     private $x;
+
+    /**
+     * @var double $y
+     * @SERIAL\Type("double")
+     */
     private $y;
 
     public function __construct($x = null, $y = null) {
