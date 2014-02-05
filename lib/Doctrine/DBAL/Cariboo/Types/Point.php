@@ -30,9 +30,12 @@ class Point {
      * setX
      *
      * @param double $x
+     * @return Point
      */
     public function setX($x) {
         $this->x = $x;
+
+        return $this;
     }
 
     /**
@@ -50,9 +53,12 @@ class Point {
      * alias de setX
      *
      * @param double $x
+     * @return Point
      */
     public function setLongitude($x) {
         $this->setX($x);
+
+        return $this;
     }
 
     /**
@@ -70,9 +76,12 @@ class Point {
      * setY
      *
      * @param double $y
+     * @return Point
      */
     public function setY($y) {
         $this->y = $y;
+
+        return $this;
     }
 
     /**
@@ -90,9 +99,12 @@ class Point {
      * alias de setY
      *
      * @param double $y
+     * @return Point
      */
     public function setLatitude($y) {
         $this->setY($y);
+
+        return $this;
     }
 
     /**

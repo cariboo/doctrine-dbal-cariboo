@@ -153,7 +153,7 @@ class PostgreSqlPlatform extends \Doctrine\DBAL\Platforms\PostgreSqlPlatform
     {
         if ($value === null) return null;
         
-        return sprintf("(%f,%f)", $value->getLatitude(), $value->getLongitude());
+        return sprintf("(%f,%f)", $value->getLongitude(), $value->getLatitude());
     }
 
     /**
