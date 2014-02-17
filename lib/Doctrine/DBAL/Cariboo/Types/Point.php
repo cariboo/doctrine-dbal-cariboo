@@ -2,7 +2,7 @@
 
 namespace Doctrine\DBAL\Cariboo\Types;
 
-use JMS\Serializer\Annotation as SERIAL;
+use JMS\Serializer\Annotation as SERIALIZER;
 
 /**
  * Point object for spatial mapping
@@ -11,13 +11,15 @@ class Point {
 
     /**
      * @var double $x
-     * @SERIAL\Type("double")
+     * @SERIALIZER\Type("double")
+     * @SERIALIZER\Groups({ "list", "details", "restricted", "owner" })
      */
     private $x;
 
     /**
      * @var double $y
-     * @SERIAL\Type("double")
+     * @SERIALIZER\Type("double")
+     * @SERIALIZER\Groups({ "list", "details", "restricted", "owner" })
      */
     private $y;
 
