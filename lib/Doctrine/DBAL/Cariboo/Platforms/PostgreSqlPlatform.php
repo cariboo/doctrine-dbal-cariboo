@@ -130,7 +130,7 @@ class PostgreSqlPlatform extends \Doctrine\DBAL\Platforms\PostgreSqlPlatform
      */
     public function getRoundExpression($value, $decimals)
     {
-        return "ROUND(" . $value . ", " . $decimals . ")";
+        return "ROUND(CAST(" . $value . " AS NUMERIC), " . $decimals . ")";
     }
 
     /**
