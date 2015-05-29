@@ -124,6 +124,16 @@ class PostgreSqlPlatform extends \Doctrine\DBAL\Platforms\PostgreSqlPlatform
     }
 
     /**
+     * Return a value rounded to n decimals
+     * 
+     * @return double
+     */
+    public function getRoundExpression($value, $decimals)
+    {
+        return "ROUND(" . $value . ", " . $decimals . ")";
+    }
+
+    /**
      * @override
      */
     public function getPointTypeDeclarationSQL(array $fieldDeclaration)
