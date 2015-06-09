@@ -128,9 +128,9 @@ class PostgreSqlPlatform extends \Doctrine\DBAL\Platforms\PostgreSqlPlatform
      * 
      * @return double
      */
-    public function getRoundExpression($value, $decimals = 0)
+    public function getRoundExpression($column, $decimals = 0)
     {
-        return "ROUND(CAST(" . $value . " AS NUMERIC), " . $decimals . ")";
+        return "ROUND(CAST(" . $column . " AS NUMERIC), " . $decimals . ")";
     }
 
     /**
